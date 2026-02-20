@@ -1,3 +1,5 @@
+import time
+
 import random
 import allure
 import pytest
@@ -18,6 +20,8 @@ class TestProfileFeature(BaseTest):
         self.dashboard_page.click_my_info_link()
         self.personal_page.is_opened()
         self.personal_page.change_name(f"Test {random.randint(1, 100)}")
+        time.sleep(5)
         self.personal_page.save_changes()
+        time.sleep(5)
         self.personal_page.is_changes_saved()
         self.personal_page.make_screenshot("Success")
