@@ -9,13 +9,12 @@ class LoginPage(BasePage):
 
     USERNAME_FIELD = ("xpath", "//input[@name='username']")
     PASSWORD_FIELD = ("xpath", "//input[@name='password']")
-    SUBMIT_BUTTON = ("xpath", "//input[@name='submit']")
-
-    @allure.step("Enter Login")
+    SUBMIT_BUTTON = ("xpath", "//button[@type='submit']")
+    
+    @allure.step("Enter login")
     def enter_login(self, login):
         self.wait.until(EC.element_to_be_clickable(self.USERNAME_FIELD)).send_keys(login)
-
-    @allure.step("Enter Password")
+    @allure.step("Enter password")
     def enter_password(self, password):
         self.wait.until(EC.element_to_be_clickable(self.PASSWORD_FIELD)).send_keys(password)
 
