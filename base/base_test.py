@@ -18,6 +18,6 @@ class BaseTest:
         request.cls.driver = driver
         request.cls.data = Data()
 
-        request.cls.dashboard_page = HostPage(driver)
+        request.cls.host_page = HostPage(driver)
         request.cls.login_page = LoginPage(driver)
-        request.cls.personal_page = RegisterPage(driver)
+        request.cls.register_page = RegisterPage(driver)
