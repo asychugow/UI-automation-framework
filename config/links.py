@@ -2,7 +2,7 @@
 
 class Links:
 
-    HOST = "https://opensource-demo.orangehrmlive.com/web/index.php"
-    LOGIN_PAGE = f"{HOST}/auth/login"
-    DASHBOARD_PAGE = f"{HOST}/dashboard/index"
-    PERSONAL_PAGE = f"{HOST}/pim/viewPersonalDetails/empNumber/7"
+    HOST_PAGE = "https://practice.expandtesting.com"
+    
+    LOGIN_PAGE = f"{HOST_PAGE}/login"
+    REGISTER_PAGE = f"{HOST_PAGE}/register"
