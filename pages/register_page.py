@@ -25,6 +25,5 @@ class RegisterPage(BasePage):
         self.wait.until(EC.element_to_be_clickable(self.SAVE_BUTTON)).click()
 
     def is_changes_saved(self):
-        self.wait.until(EC.invisibility_of_element_located(self.SPINNER))
         self.wait.until(EC.visibility_of_element_located(self.FIRST_NAME_FIELD))
         self.wait.until(EC.text_to_be_present_in_element_value(self.FIRST_NAME_FIELD, self.name))
