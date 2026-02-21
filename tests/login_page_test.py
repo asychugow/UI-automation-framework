@@ -30,3 +30,13 @@ class TestLoginPage(BaseTest):
         self.login_page.is_invalid_user_message_displayed()
         self.login_page.is_opened()
 
+    def test_invalid_password(self):
+        self.host_page.open()
+        self.login_page.open()
+        self.login_page.is_opened()
+        self.login_page.enter_login(self.data.LOGIN)
+        self.login_page.enter_password("pass122345")
+        self.login_page.click_submit_button()
+        self.login_page.is_invalid_password_message_displayed()
+        self.login_page.is_opened()
+

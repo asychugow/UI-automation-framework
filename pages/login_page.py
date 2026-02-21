@@ -11,7 +11,7 @@ class LoginPage(BasePage):
     SUBMIT_BUTTON = ("xpath", "//button[@id='submit-login']")
 
     INVALID_USER_MESSAGE = ("xpath", "//b[contains(text(), 'Your username is invalid!')]")
-
+    INVALID_PASSWORD_MESSAGE = ("xpath", "//b[contains(text(), 'Your password is invalid!')]")
     
     def enter_login(self, login):
         self.wait.until(EC.element_to_be_clickable(self.USERNAME_FIELD)).send_keys(login)
@@ -24,3 +24,6 @@ class LoginPage(BasePage):
 
     def is_invalid_user_message_displayed(self):
         self.wait.until(EC.visibility_of_element_located(self.INVALID_USER_MESSAGE))
+
+    def is_invalid_password_message_displayed(self):
+        self.wait.until(EC.visibility_of_element_located(self.INVALID_PASSWORD_MESSAGE))
