@@ -12,6 +12,8 @@ class LoginPage(BasePage):
 
     INVALID_USER_MESSAGE = ("xpath", "//b[contains(text(), 'Your username is invalid!')]")
     INVALID_PASSWORD_MESSAGE = ("xpath", "//b[contains(text(), 'Your password is invalid!')]")
+    SUCCESSFUL_REGISTRATION_MESSAGE = ("xpath", "//b[contains(text(), 'Successfully registered, you can log in now.')]")
+
     
     def enter_login(self, login):
         self.wait.until(EC.element_to_be_clickable(self.USERNAME_FIELD)).send_keys(login)
@@ -27,3 +29,6 @@ class LoginPage(BasePage):
 
     def is_invalid_password_message_displayed(self):
         self.wait.until(EC.visibility_of_element_located(self.INVALID_PASSWORD_MESSAGE))
+
+    def is_succeful_registration_message_displayed(self):
+        self.wait.until(EC.visibility_of_element_located(self.SUCCESSFUL_REGISTRATION_MESSAGE))

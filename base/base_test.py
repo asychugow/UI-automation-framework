@@ -12,7 +12,7 @@ class BaseTest:
 
     host_page: HostPage
     login_page: LoginPage
-    personal_page: RegisterPage
+    register_page: RegisterPage
     secure_page: SecurePage
 
     @pytest.fixture(autouse=True)

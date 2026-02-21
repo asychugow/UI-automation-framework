@@ -10,20 +10,26 @@ class RegisterPage(BasePage):
 
     PAGE_URL = Links.REGISTER_PAGE
 
-    FIRST_NAME_FIELD = ("xpath", "//input[@name='firstName']")
-    SAVE_BUTTON = ("xpath", "(//button[@type='submit'])[1]")
-    SPINNER = ("xpath", "//div[@class='oxd-loading-spinner']")
+    USERNAME_FIELD = ("xpath", "//input[@id='username']")
+    PASSWORD_FIELD = ("xpath", "//input[@id='password']")
+    CONFIRM_PASSWORD_FIELD = ("xpath", "//input[@id='confirmPassword']")
+    REGISTER_BUTTON = ("xpath", "//button[text()='Register']")
 
-    def change_name(self, new_name):
-            first_name_field = self.wait.until(EC.element_to_be_clickable(self.FIRST_NAME_FIELD))
-            first_name_field.send_keys(Keys.CONTROL + "a")
-            first_name_field.send_keys(Keys.BACKSPACE)
-            first_name_field.send_keys(new_name)
+    def enter_username(self, new_name):
+            username_field = self.wait.until(EC.element_to_be_clickable(self.USERNAME_FIELD))
+            username_field.send_keys(new_name)
             self.name = new_name
 
-    def save_changes(self):
-        self.wait.until(EC.element_to_be_clickable(self.SAVE_BUTTON)).click()
+    def enter_password(self, new_password):
+            password_field = self.wait.until(EC.element_to_be_clickable(self.PASSWORD_FIELD))
+            password_field.send_keys(new_password)
+            self.password = new_password
+        
+    def confirm_password(self, new_password):
+            password_field = self.wait.until(EC.element_to_be_clickable(self.CONFIRM_PASSWORD_FIELD))
+            password_field.send_keys(new_password)
+            self.password = new_password
 
-    def is_changes_saved(self):
-        self.wait.until(EC.visibility_of_element_located(self.FIRST_NAME_FIELD))
-        self.wait.until(EC.text_to_be_present_in_element_value(self.FIRST_NAME_FIELD, self.name))
+    def click_register_button(self):
+        self.wait.until(EC.element_to_be_clickable(self.REGISTER_BUTTON)).click()
+
