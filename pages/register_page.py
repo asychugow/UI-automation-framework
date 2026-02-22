@@ -15,21 +15,29 @@ class RegisterPage(BasePage):
     CONFIRM_PASSWORD_FIELD = ("xpath", "//input[@id='confirmPassword']")
     REGISTER_BUTTON = ("xpath", "//button[text()='Register']")
 
-    def enter_username(self, new_name):
-            username_field = self.wait.until(EC.element_to_be_clickable(self.USERNAME_FIELD))
-            username_field.send_keys(new_name)
-            self.name = new_name
+    ALL_FIELDS_REQUiRED_MESSAGE = ("xpath", "//b[contains(text(), 'All fields are required.')]")
+    PASSWORDS_DONT_MATCH_MESSAGE = ("xpath", "//b[contains(text(), 'Passwords do not match.')]")
 
-    def enter_password(self, new_password):
+
+
+    def enter_username(self, name):
+            username_field = self.wait.until(EC.element_to_be_clickable(self.USERNAME_FIELD))
+            username_field.send_keys(name)
+
+    def enter_password(self, password):
             password_field = self.wait.until(EC.element_to_be_clickable(self.PASSWORD_FIELD))
-            password_field.send_keys(new_password)
-            self.password = new_password
+            password_field.send_keys(password)
         
-    def confirm_password(self, new_password):
+    def confirm_password(self, password):
             password_field = self.wait.until(EC.element_to_be_clickable(self.CONFIRM_PASSWORD_FIELD))
-            password_field.send_keys(new_password)
-            self.password = new_password
+            password_field.send_keys(password)
 
     def click_register_button(self):
         self.wait.until(EC.element_to_be_clickable(self.REGISTER_BUTTON)).click()
+
+    def is_all_fields_required_message_displayed(self):
+        self.wait.until(EC.visibility_of_element_located(self.ALL_FIELDS_REQUiRED_MESSAGE))
+
+    def is_passwords_dont_match_message_displayed(self):
+        self.wait.until(EC.visibility_of_element_located(self.PASSWORDS_DONT_MATCH_MESSAGE))
 
