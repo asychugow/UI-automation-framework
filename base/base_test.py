@@ -4,6 +4,7 @@ from pages.login_page import LoginPage
 from pages.host_page import HostPage
 from pages.register_page import RegisterPage
 from pages.secure_page import SecurePage
+from pages.inputs_page import InputsPage
 
 
 class BaseTest:
@@ -14,6 +15,7 @@ class BaseTest:
     login_page: LoginPage
     register_page: RegisterPage
     secure_page: SecurePage
+    inputs_page: InputsPage
 
     @pytest.fixture(autouse=True)
     def setup(self, request, driver):
@@ -24,3 +26,4 @@ class BaseTest:
         request.cls.login_page = LoginPage(driver)
         request.cls.register_page = RegisterPage(driver)
         request.cls.secure_page = SecurePage(driver)
+        request.cls.inputs_page = InputsPage(driver)

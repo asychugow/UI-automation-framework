@@ -7,3 +7,4 @@ class Links:
     LOGIN_PAGE = f"{HOST_PAGE}/login"
     REGISTER_PAGE = f"{HOST_PAGE}/register"
     SECURE_PAGE = f"{HOST_PAGE}/secure"
+    INPUTS_PAGE = f"{HOST_PAGE}/inputs"
