@@ -51,6 +51,17 @@ class InputsPage(BasePage):
     
     def get_output_password(self):
         return self.wait.until(EC.visibility_of_element_located(self.PASSWORD_OTPUT_FIELD)).text
+    
+
+
+    def get_input_number(self):
+        return self.wait.until(EC.visibility_of_element_located(self.NUMBER_INPUT_FIELD)).text
+
+    def get_intput_text(self):
+        return self.wait.until(EC.visibility_of_element_located(self.TEXT_INPUT_FIELD)).text
+    
+    def get_input_password(self):
+        return self.wait.until(EC.visibility_of_element_located(self.PASSWORD_INPUT_FIELD)).text
 
 
 

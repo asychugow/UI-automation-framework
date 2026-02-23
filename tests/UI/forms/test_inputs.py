@@ -29,3 +29,14 @@ class TestInputsPage(BaseTest):
         self.inputs_page.click_display_inputs_button()
         self.inputs_page.get_output_password()
         assert self.inputs_page.get_output_password() == "SecretPass123!"
+
+    def test_clear_inputs(self):
+        self.inputs_page.open()
+        self.inputs_page.enter_number("1999")
+        self.inputs_page.enter_text("text")
+        self.inputs_page.enter_password("SecretPass123!")
+        self.inputs_page.click_display_inputs_button()
+        assert self.inputs_page.get_input_number() == ""
+        assert self.inputs_page.get_intput_text() == ""
+        assert self.inputs_page.get_input_password() == ""
+
