@@ -8,3 +8,4 @@ class Links:
     REGISTER_PAGE = f"{HOST_PAGE}/register"
     SECURE_PAGE = f"{HOST_PAGE}/secure"
     INPUTS_PAGE = f"{HOST_PAGE}/inputs"
+    DROPDOWN_PAGE = f"{HOST_PAGE}/dropdown"

@@ -5,6 +5,7 @@ from pages.host_page import HostPage
 from pages.register_page import RegisterPage
 from pages.secure_page import SecurePage
 from pages.inputs_page import InputsPage
+from pages.dropdown_page import DropdownPage
 
 
 class BaseTest:
@@ -16,6 +17,7 @@ class BaseTest:
     register_page: RegisterPage
     secure_page: SecurePage
     inputs_page: InputsPage
+    dropdown_page: DropdownPage
 
     @pytest.fixture(autouse=True)
     def setup(self, request, driver):
@@ -27,3 +29,4 @@ class BaseTest:
         request.cls.register_page = RegisterPage(driver)
         request.cls.secure_page = SecurePage(driver)
         request.cls.inputs_page = InputsPage(driver)
+        request.cls.dropdown_page = DropdownPage(driver)
