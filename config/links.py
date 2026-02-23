@@ -9,3 +9,4 @@ class Links:
     SECURE_PAGE = f"{HOST_PAGE}/secure"
     INPUTS_PAGE = f"{HOST_PAGE}/inputs"
     DROPDOWN_PAGE = f"{HOST_PAGE}/dropdown"
+    CHECKBOXES_PAGE = f"{HOST_PAGE}/checkboxes"
