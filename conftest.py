@@ -1,8 +1,9 @@
 import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+from api.client import ApiClient
 
-@pytest.fixture(scope="function",autouse=True)
+@pytest.fixture(scope="function")
 def driver(request):
     options = Options()
     #options.add_argument("--headless")
@@ -13,3 +14,8 @@ def driver(request):
     request.cls.driver = driver
     yield driver
     driver.quit()
+
+
+@pytest.fixture
+def api_client():
+    return ApiClient("https://practice.expandtesting.com/notes/api")
