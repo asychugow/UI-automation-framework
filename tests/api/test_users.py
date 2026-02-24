@@ -16,6 +16,18 @@ class TestUsers:
 
         assert response.status_code == 201
         assert body["message"] == "User account created successfully"
+
+    def test_register_with_existing_email(self, api_client):
+        payload = {
+            "name": f"TestUser{random.randint(1,900)}",
+            "email": "testuser23@example.com",
+            "password": "TestPassword123"
+        }
+        response = api_client.post(Endpoints.REGISTER, json=payload)
+        body = response.json()
+
+        assert response.status_code == 409
+        assert body["message"] == "An account already exists with the same email address"
         
 
     def test_login(self, api_client):
