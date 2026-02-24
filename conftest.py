@@ -16,6 +16,8 @@ def driver(request):
     driver.quit()
 
 
-@pytest.fixture
+@pytest.fixture(scope="module")
 def api_client():
-    return ApiClient("https://practice.expandtesting.com/notes/api")
+    base_url = "https://practice.expandtesting.com/notes/api"
+    client = ApiClient(base_url)
+    yield client
