@@ -26,7 +26,18 @@ class TestUsers:
         response = api_client.post(Endpoints.LOGIN, json=payload)
 
         assert response.status_code == 200
-        assert "token" in response.json()["data"] 
+        assert "token" in response.json()["data"]
+
+    def test_invalid_login(self, api_client):
+        payload = {
+            "email": "testuser@example.com",
+            "password": "TestPassword123"
+        }
+        login = api_client.post(Endpoints.LOGIN, json=payload)
+        body = login.json()
+
+        assert login.status_code == 401
+        assert body["message"] == "Incorrect email address or password"
 
     def test_get_profile(self, api_client):
         payload = {
@@ -44,6 +55,5 @@ class TestUsers:
         assert response.status_code == 200
 
         email = response.json()["data"].get("email")
-        assert email
         assert email == payload["email"]
         

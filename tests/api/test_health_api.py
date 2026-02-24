@@ -2,7 +2,7 @@ from api.endpoints import Endpoints
 
 class TestHealth:
 
-    def test_health_status(api_client):
+    def test_health_status(self, api_client):
         response = api_client.get(Endpoints.HEALTH)
         body = response.json()
 
