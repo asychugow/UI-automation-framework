@@ -7,6 +7,7 @@ from pages.secure_page import SecurePage
 from pages.inputs_page import InputsPage
 from pages.dropdown_page import DropdownPage
 from pages.checkboxes_page import CheckboxesPage
+from pages.hovers_page import HoversPage
 
 
 
@@ -21,6 +22,7 @@ class BaseTest:
     inputs_page: InputsPage
     dropdown_page: DropdownPage
     checkboxes_page: CheckboxesPage
+    hovers_page: HoversPage
 
     @pytest.fixture(autouse=True)
     def setup(self, request, driver):
@@ -34,3 +36,4 @@ class BaseTest:
         request.cls.inputs_page = InputsPage(driver)
         request.cls.dropdown_page = DropdownPage(driver)
         request.cls.checkboxes_page = CheckboxesPage(driver)
+        request.cls.hovers_page = HoversPage(driver)

@@ -10,3 +10,4 @@ class Links:
     INPUTS_PAGE = f"{HOST_PAGE}/inputs"
     DROPDOWN_PAGE = f"{HOST_PAGE}/dropdown"
     CHECKBOXES_PAGE = f"{HOST_PAGE}/checkboxes"
+    HOVERS_PAGE = f"{HOST_PAGE}/hovers"
